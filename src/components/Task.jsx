@@ -1,10 +1,16 @@
 import { Checkbox, Box, Text } from "@chakra-ui/react";
-import React from "react";
 
 const Task = (props) => {
   return (
     <Box mb="16px">
-      <Checkbox colorScheme="blue" size="lg">
+      <Checkbox
+        isChecked={props.isDone}
+        colorScheme="blue"
+        size="lg"
+        onChange={() => {
+          props.toggleIsDone(props.index);
+        }}
+      >
         <Text>{props.name}</Text>
       </Checkbox>
     </Box>
